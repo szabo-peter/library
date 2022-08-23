@@ -1,0 +1,24 @@
+version: "3.7"
+services:
+  library_app:
+    build: .
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - mongo_db
+    volumes:
+      - ./logger:/logs
+
+  mongo_db:
+    image: "mongo:latest"
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo-data:/data/db
+volumes:
+  mongo-data:
+    driver: local
+  logger:
+    driver: local

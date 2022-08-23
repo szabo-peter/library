@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      host: mongo_db
+      port: 27017
+      database: library
+
+logging:
+  file:
+    name: ./logger/library-app.log
+  level:
+    org.springframework.web: INFO
